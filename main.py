@@ -45,8 +45,8 @@ class InOrderTraversal:
     """
 
     # solution from internet
-    # def preorder(root):
-    #     return [root.val] + preorder(root.left) + preorder(root.right)
+    # def inorder(root):
+    #     return inorder(root.left) + [root.val] + inorder(root.right)
 
     def inorder_traversal(self, root: Optional[TreeNode]) -> List[int]:
         result = []  # To store the inorder traversal
@@ -64,14 +64,27 @@ class InOrderTraversal:
         return result
 
 
-if __name__ == "__main__":
-    root = TreeNode(3)
-    child = TreeNode(1)
-    child.right = TreeNode(2)
-    root.left = child
-    root.right = TreeNode(4)
-    # output: [1, 2, 3, 4]
+# 144
+def preorder_traversal(root: Optional[TreeNode]) -> List[int]:
+    return [root.val] + preorder_traversal(root.left) + preorder_traversal(root.right)
 
 
-    i_t = InOrderTraversal()
-    print(i_t.inorder_traversal(root))
+# 3
+# solution from internet
+def length_of_longest_substring(s: str) -> int:
+    dic = {}  # Dictionary to store characters and their indices
+    left = 0  # Left pointer to track the start of the current substring
+    max_len = 0  # Maximum length of the substring without repeating characters
+
+    for right in range(len(s)):
+        if s[right] not in dic:  # If the current character is not in the dictionary
+            max_len = max(max_len, right - left + 1)
+        else:
+            if dic[s[right]] < left:  # If the character is in the dictionary but its index is before the current substring
+                max_len = max(max_len, right - left + 1)
+            else:
+                left = dic[s[right]] + 1  # Update the left pointer to skip the repeated character
+        dic[s[right]] = right  # Update the index of the current character in the dictionary
+
+    return max_len
+
