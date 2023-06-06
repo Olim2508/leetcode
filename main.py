@@ -97,3 +97,31 @@ def max_profit(prices: List[int]) -> int:
         min_price = min(price, min_price)
         max_profit = max(max_profit, price - min_price)
     return max_profit
+
+
+def binary_search(list, item):
+    low = 0
+    high = len(list) - 1
+    while low <= high:
+        mid = (low + high) / 2
+        guess = list[mid]
+        if guess == item:
+            return mid
+        if guess > item:
+            low = mid - 1
+        if guess <= item:
+            high = mid + 1
+    return None
+
+
+# 27. Remove element
+def remove_element(nums: List[int], val: int) -> int:
+    count = 0
+    i = 0
+    while i < len(nums):
+        if nums[i] == val:
+            nums.pop(i)
+        else:
+            count += 1
+            i += 1
+    return count

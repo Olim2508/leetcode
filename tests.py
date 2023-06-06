@@ -1,4 +1,4 @@
-from main import length_of_longest_substring, max_profit
+from main import length_of_longest_substring, max_profit, remove_element
 
 
 def test_length_of_longest_substring():
@@ -33,3 +33,6 @@ def test_max_profit():
     assert max_profit(prices) == 0
 
 
+def test_remove_element():
+    nums, val = [0, 1, 2, 2, 3, 0, 4, 2], 2
+    assert remove_element(nums, val) == 5
