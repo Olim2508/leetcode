@@ -1,4 +1,4 @@
-from main import length_of_longest_substring, max_profit, remove_element
+from main import *
 
 
 def test_length_of_longest_substring():
@@ -36,3 +36,29 @@ def test_max_profit():
 def test_remove_element():
     nums, val = [0, 1, 2, 2, 3, 0, 4, 2], 2
     assert remove_element(nums, val) == 5
+
+
+def test_next_greater_element():
+    s = NextGreaterElementSolution()
+    nums1 = [4, 1, 2]
+    nums2 = [1, 3, 4, 2]
+    res = s.next_greater_element(nums1, nums2)
+    assert res == [-1, 3, -1]
+
+    nums1 = [2, 4]
+    nums2 = [1, 2, 3, 4]
+    res = s.next_greater_element(nums1, nums2)
+    assert res == [3, -1]
+
+
+def test_next_greater_element_optimal():
+    s = NextGreaterElementSolution()
+    nums1 = [4, 1, 2]
+    nums2 = [1, 3, 4, 2]
+    res = s.next_greater_element_optimal(nums1, nums2)
+    assert res == [-1, 3, -1]
+
+    nums1 = [2, 4]
+    nums2 = [1, 2, 3, 4]
+    res = s.next_greater_element_optimal(nums1, nums2)
+    assert res == [3, -1]

@@ -125,3 +125,41 @@ def remove_element(nums: List[int], val: int) -> int:
             count += 1
             i += 1
     return count
+
+
+# 496. Next greater element
+class NextGreaterElementSolution:
+    # O(n * m) time complexity - not good
+
+    def next_greater_element(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        res = []
+        for i in range(len(nums1)):
+            found = False
+            for j in range(len(nums2)):
+                if nums1[i] == nums2[j]:
+                    found = True
+                if found and nums1[i] < nums2[j]:
+                    res.append(nums2[j])
+                    break
+            else:
+                res.append(-1)
+        return res
+
+    # O(m + n) time complexity
+    def next_greater_element_optimal(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        nums1Idx = {v: i for i, v in enumerate(nums1)}
+        res = [-1] * len(nums1)
+
+        stack = []
+        for i in range(len(nums2)):
+            cur = nums2[i]
+            while stack and cur > stack[-1]:  # top of the stack
+                val = stack.pop()
+                idx = nums1Idx[val]
+                res[idx] = cur
+            if cur in nums1:
+                stack.append(cur)
+        return res
+
+
+
