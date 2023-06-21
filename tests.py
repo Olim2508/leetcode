@@ -73,3 +73,23 @@ def test_baseball_game():
     ops = ["5", "-2", "4", "C", "D", "9", "+", "+"]
     res = b.calPoints(ops)
     assert res == 27
+
+
+def test_merge_two_sorted_lists():
+    """
+    list1 = [1,2,4], list2 = [1,3,4]
+    output - [1,1,2,3,4,4]
+    """
+
+    list_1 = ListNode(1)
+    node_1 = ListNode(2)
+    list_1.next = node_1
+    node_1.next = ListNode(4)
+
+    list_2 = ListNode(1)
+    node_2 = ListNode(3)
+    list_2.next = node_1
+    node_2.next = ListNode(4)
+    s = MergeTwoSortedListSolution()
+    res = s.mergeTwoLists(list_1, list_2)
+
