@@ -62,3 +62,14 @@ def test_next_greater_element_optimal():
     nums2 = [1, 2, 3, 4]
     res = s.next_greater_element_optimal(nums1, nums2)
     assert res == [3, -1]
+
+
+def test_baseball_game():
+    b = BaseBallGame()
+    ops = ["5", "2", "C", "D", "+"]
+    res = b.calPoints(ops)
+    assert res == 30
+
+    ops = ["5", "-2", "4", "C", "D", "9", "+", "+"]
+    res = b.calPoints(ops)
+    assert res == 27

@@ -162,4 +162,21 @@ class NextGreaterElementSolution:
         return res
 
 
+# 682. Baseball game
+class BaseBallGame:
+    def calPoints(self, operations: List[str]) -> int:
+        stack = []
+        for o in operations:
+            if o == "C":
+                stack.pop()
+            if o == "D":
+                stack.append(stack[-1] * 2)
+            if o == "+":
+                stack.append(stack[-1] + stack[-2])
+            try:
+                stack.append(int(o))
+            except ValueError:
+                pass
+        return sum(stack)
+
 
