@@ -92,4 +92,23 @@ def test_merge_two_sorted_lists():
     node_2.next = ListNode(4)
     s = MergeTwoSortedListSolution()
     res = s.mergeTwoLists(list_1, list_2)
+    print(res)
+
+
+def test_simplify_path():
+    list_1 = ListNode(1)
+    node_1 = ListNode(1)
+    node_2 = ListNode(2)
+    node_3 = ListNode(3)
+    node_4 = ListNode(3)
+
+    list_1.next = node_1
+    node_1.next = node_2
+    node_2.next = node_3
+    node_3.next = node_4
+
+    s = DeleteDuplicatesSolution()
+    res = s.deleteDuplicates(list_1)
+    # print(res)
+
 

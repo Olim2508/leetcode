@@ -206,3 +206,22 @@ class MergeTwoSortedListSolution:
         if list2:
             tail.next = list2
         return dummy.next
+
+
+# 83. Remove Duplicates from Sorted List
+class DeleteDuplicatesSolution:
+    # solution from net
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if not head:
+            return None
+
+        curr = head
+
+        while curr.next:
+            if curr.val == curr.next.val:
+                curr.next = curr.next.next
+            else:
+                curr = curr.next
+        return head
+
+
