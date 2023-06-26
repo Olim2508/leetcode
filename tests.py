@@ -112,3 +112,12 @@ def test_simplify_path():
     # print(res)
 
 
+def test_max_depth():
+    s = MaxDepthSolution()
+    inpt = "(1+(2*3)+((8)/4))+1"
+    res = s.maxDepth(inpt)
+    assert res == 3
+
+    inpt = "(1)+((2))+(((3)))"
+    res = s.maxDepth(inpt)
+    assert res == 3

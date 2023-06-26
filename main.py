@@ -225,3 +225,18 @@ class DeleteDuplicatesSolution:
         return head
 
 
+# 1614. Maximum Nesting Depth of the Parentheses
+class MaxDepthSolution:
+    """inpt = '(1+(2*3)+((8)/4))+1'  outpt = 3"""
+    def maxDepth(self, s: str) -> int:
+        max = depth = 0
+        for let in s:
+            if let == "(":
+                depth += 1
+                if depth > max:
+                    max = depth
+            elif let == ")":
+                depth -= 1
+        return max
+
+
