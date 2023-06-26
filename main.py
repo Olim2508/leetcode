@@ -240,3 +240,21 @@ class MaxDepthSolution:
         return max
 
 
+# 2696. Minimum String Length After Removing Substrings
+class MinLengthSolution:
+    """
+    inpt = 'ABFCACDB'  outpt = 2
+    need to remove AB or CD substring
+    """
+
+    def minLength(self, s: str) -> int:
+        stack = []
+        for i in range(len(s)):
+            if (s[i] == "B" and stack and stack[-1] == "A") or (s[i] == "D" and stack and stack[-1] == "C"):
+                stack.append(s[i])
+                stack.pop()
+                stack.pop()
+            else:
+                stack.append(s[i])
+        return len(stack)
+

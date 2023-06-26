@@ -121,3 +121,15 @@ def test_max_depth():
     inpt = "(1)+((2))+(((3)))"
     res = s.maxDepth(inpt)
     assert res == 3
+
+
+def test_min_length():
+    s = MinLengthSolution()
+    inpt = "ABFCACDB"
+    res = s.minLength(inpt)
+    assert res == 2
+
+    inpt = "ACBBD"
+    res = s.minLength(inpt)
+    assert res == 5
+
