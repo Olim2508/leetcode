@@ -258,3 +258,13 @@ class MinLengthSolution:
                 stack.append(s[i])
         return len(stack)
 
+
+# 234. Palindrome linked list
+class IsPalindromeLinkedListSolution:
+    # memory should be in O(1), but it is not
+    def isPalindrome(self, head: Optional[ListNode]) -> bool:
+        arr = []
+        while head:
+            arr.append(head.val)
+            head = head.next
+        return arr == arr[::-1]

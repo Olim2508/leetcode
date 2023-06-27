@@ -133,3 +133,17 @@ def test_min_length():
     res = s.minLength(inpt)
     assert res == 5
 
+
+def test_is_palindrome():
+    list_1 = ListNode(1)
+    node_1 = ListNode(2)
+    node_2 = ListNode(2)
+    node_3 = ListNode(1)
+
+    list_1.next = node_1
+    node_1.next = node_2
+    node_2.next = node_3
+
+    s = IsPalindromeLinkedListSolution()
+    res = s.isPalindrome(list_1)
+    assert res
