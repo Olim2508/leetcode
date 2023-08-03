@@ -1,4 +1,4 @@
-
+import math
 from typing import List, Optional, Union
 
 
@@ -302,3 +302,13 @@ class IsPowerOfTwoSolution:
             return self.powerRecursion(n, i + 1)
         return 2 ** i
 
+    # solution 3
+    def solution_from_web(self, n):
+        power = 0
+        temp = 0
+        while temp <= n:
+            temp = math.pow(2, power)
+            if temp == n:
+                return True
+            power += 1
+        return False

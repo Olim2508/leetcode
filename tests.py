@@ -166,3 +166,11 @@ def test_is_power_of_two():
     n = 8
     res = s.solution(n)
     assert res
+
+    # solution 3
+    n = 15
+    res = s.solution_from_web(n)
+    assert not res
+    n = 8
+    res = s.solution_from_web(n)
+    assert res
