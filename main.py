@@ -268,3 +268,37 @@ class IsPalindromeLinkedListSolution:
             arr.append(head.val)
             head = head.next
         return arr == arr[::-1]
+
+
+class IsPowerOfTwoSolution:
+    # solution 1
+    def isPowerOfTwo(self, n: int) -> bool:
+        if n == 1:
+            return True
+        nth_power = float("-inf")
+        res_power = self.powerFunc(n, nth_power)
+        if res_power == n:
+            return True
+        return False
+
+    def powerFunc(self, n, nth_power):
+        i = 0
+        while nth_power < n:
+            nth_power = 2 ** i
+            i += 1
+        return nth_power
+
+
+    # solution 2
+    def solution(self, n):
+        i = 0
+        res_power = self.powerRecursion(n, i)
+        if res_power == n:
+            return True
+        return False
+
+    def powerRecursion(self, n, i):
+        if 2 ** i < n:
+            return self.powerRecursion(n, i + 1)
+        return 2 ** i
+

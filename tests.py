@@ -147,3 +147,22 @@ def test_is_palindrome():
     s = IsPalindromeLinkedListSolution()
     res = s.isPalindrome(list_1)
     assert res
+
+
+def test_is_power_of_two():
+    s = IsPowerOfTwoSolution()
+    # solution 1
+    n = 15
+    res = s.isPowerOfTwo(n)
+    assert not res
+    n = 8
+    res = s.isPowerOfTwo(n)
+    assert res
+
+    # solution 2
+    n = 15
+    res = s.solution(n)
+    assert not res
+    n = 8
+    res = s.solution(n)
+    assert res
