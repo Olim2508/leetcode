@@ -312,3 +312,9 @@ class IsPowerOfTwoSolution:
                 return True
             power += 1
         return False
+
+
+class AddTwoNumbersSolution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        pass
+
