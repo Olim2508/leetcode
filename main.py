@@ -1,5 +1,6 @@
 import math
 from typing import List, Optional, Union
+from nodes import Node
 
 
 # 14. Longest common prefix
@@ -80,7 +81,8 @@ def length_of_longest_substring(s: str) -> int:
         if s[right] not in dic:  # If the current character is not in the dictionary
             max_len = max(max_len, right - left + 1)
         else:
-            if dic[s[right]] < left:  # If the character is in the dictionary but its index is before the current substring
+            if dic[
+                s[right]] < left:  # If the character is in the dictionary but its index is before the current substring
                 max_len = max(max_len, right - left + 1)
             else:
                 left = dic[s[right]] + 1  # Update the left pointer to skip the repeated character
@@ -228,6 +230,7 @@ class DeleteDuplicatesSolution:
 # 1614. Maximum Nesting Depth of the Parentheses
 class MaxDepthSolution:
     """inpt = '(1+(2*3)+((8)/4))+1'  outpt = 3"""
+
     def maxDepth(self, s: str) -> int:
         max = depth = 0
         for let in s:
@@ -287,7 +290,6 @@ class IsPowerOfTwoSolution:
             nth_power = 2 ** i
             i += 1
         return nth_power
-
 
     # solution 2
     def solution(self, n):
@@ -351,3 +353,30 @@ class BackSpaceCompareSolution:
                 t_list.append(j)
         return s_list == t_list
 
+
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+"""
+
+
+# todo not finished
+class IncreasingSolutionBST:
+    def increasingBST(self, root: TreeNode) -> TreeNode:
+        dummy = TreeNode()
+        tail = dummy
+
+        def inorder(node):
+            nonlocal tail
+            if not node: return
+            inorder(node.left)
+
+            tail.right = TreeNode(val=node.val)
+            tail = tail.right
+
+            inorder(node.right)
+
+        return dummy.right

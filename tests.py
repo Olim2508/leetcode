@@ -1,4 +1,5 @@
 from main import *
+from nodes import *
 
 
 def test_length_of_longest_substring():
