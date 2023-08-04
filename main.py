@@ -314,7 +314,40 @@ class IsPowerOfTwoSolution:
         return False
 
 
-class AddTwoNumbersSolution:
-    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-        pass
+# class FirstUniqCharSolution:
+#     def firstUniqChar(self, s: str) -> int:
+#         print(s)
+#         queue = {}
+#         for i in range(len(s)):
+#             # print(s[i])
+#             if s[i] not in queue:
+#                 queue[i] = 1
+#             else:
+#                 # del queue[i]
+#                 queue[i] += 1
+#         print("queue", queue)
+#         return -1
+
+
+# 844
+class BackSpaceCompareSolution:
+
+    # my slution
+    def backspaceCompare(self, s: str, t: str) -> bool:
+        s_list, t_list = [], []
+        for i in s:
+            if i == "#" and s_list:
+                s_list.pop()
+            elif i == "#":
+                pass
+            else:
+                s_list.append(i)
+        for j in t:
+            if j == "#" and t_list:
+                t_list.pop()
+            elif j == "#":
+                pass
+            else:
+                t_list.append(j)
+        return s_list == t_list
 

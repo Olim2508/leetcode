@@ -174,3 +174,34 @@ def test_is_power_of_two():
     n = 8
     res = s.solution_from_web(n)
     assert res
+
+
+# def test_first_unique_char():
+#     s = FirstUniqCharSolution()
+#     st = "loveleetcode"
+#     res = s.firstUniqChar(st)
+#     print(res)
+#     assert res == 2
+
+    # st = "leetcode"
+    # res = s.firstUniqChar(st)
+    # assert res == 0
+
+def test_backspace_compare():
+    s = BackSpaceCompareSolution()
+    # solution 1
+    first_s, second_s = "y#fo##f", "y#f#o##f"
+    res = s.backspaceCompare(first_s, second_s)
+    assert res
+
+    first_s, second_s = "ab#c", "ad#c"
+    res = s.backspaceCompare(first_s, second_s)
+    assert res
+
+    first_s, second_s = "ab##", "c#d#"
+    res = s.backspaceCompare(first_s, second_s)
+    assert res
+
+    first_s, second_s = "a#c", "b"
+    res = s.backspaceCompare(first_s, second_s)
+    assert not res
