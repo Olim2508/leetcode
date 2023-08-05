@@ -206,3 +206,17 @@ def test_backspace_compare():
     first_s, second_s = "a#c", "b"
     res = s.backspaceCompare(first_s, second_s)
     assert not res
+
+
+def test_count_students():
+    s = CountStudentsSolution()
+
+    students = [1, 1, 0, 0]
+    sandwiches = [0, 1, 0, 1]
+    res = s.countStudents(students, sandwiches)
+    assert res == 0
+
+    # students = [1,1,1,0,0,1]
+    # sandwiches = [1,0,0,0,1,1]
+    # res = s.countStudents(students, sandwiches)
+    # assert res == 3

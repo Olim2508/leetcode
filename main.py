@@ -380,3 +380,37 @@ class IncreasingSolutionBST:
             inorder(node.right)
 
         return dummy.right
+
+
+# 1700
+class CountStudentsSolution:
+    """
+    1 - squared sandwiches
+    0 - circular sandwiches
+    """
+    def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
+        stuck_in_queue = 0
+        while stuck_in_queue < len(students):
+            student = students.pop(0)
+            if sandwiches[0] == student:
+                sandwiches.pop(0)
+                stuck_in_queue = 0
+            else:
+                students.append(student)
+                stuck_in_queue += 1
+        return stuck_in_queue
+
+    def my_solution(self, students, sandwiches):
+        if not students:
+            return 0
+        for i in range(len(students)):
+            print("students", students)
+            print("sandwiches", sandwiches, "\n\n")
+            if not any(item in students for item in sandwiches):
+                return len(students)
+            if students[i] == sandwiches[0]:
+                students.pop(i)
+                sandwiches.pop(0)
+            else:
+                students.append(students.pop(0))
+        return 0
