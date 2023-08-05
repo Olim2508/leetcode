@@ -220,3 +220,18 @@ def test_count_students():
     # sandwiches = [1,0,0,0,1,1]
     # res = s.countStudents(students, sandwiches)
     # assert res == 3
+
+
+def test_recent_counter():
+    obj = RecentCounter()
+    res = obj.ping(1)
+    assert res == 1
+
+    res = obj.ping(100)
+    assert res == 2
+
+    res = obj.ping(3001)
+    assert res == 3
+
+    res = obj.ping(3002)
+    assert res == 3

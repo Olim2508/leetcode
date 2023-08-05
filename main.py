@@ -414,3 +414,42 @@ class CountStudentsSolution:
             else:
                 students.append(students.pop(0))
         return 0
+
+
+# 933
+class RecentCounter:
+
+    def __init__(self):
+        self.recent_requests = []
+
+    def ping(self, t: int) -> int:
+        self.recent_requests.append(t)
+        temp = self.recent_requests
+        range_req = [t - 3000, t]
+        count_items_in_range = len(temp)
+        print("range_req", range_req)
+        print("recent_requests", self.recent_requests)
+
+        in_range = False
+        while not in_range:
+            # starting point
+            if start_in_range := (range_req[0] > temp[0]):
+                temp.pop(0)
+                count_items_in_range -= 1
+
+            # ending point
+            if end_in_range := (range_req[-1] > temp[-1]):
+                temp.pop(-1)
+                count_items_in_range -= 1
+
+            if not start_in_range and not end_in_range:
+                in_range = True
+
+
+        # for i in range(len(self.recent_requests)):
+        #     if range_req[0] <= self.recent_requests[i] <= range_req[1]:
+        #         count_items_in_range += 1
+
+        return count_items_in_range
+
+
