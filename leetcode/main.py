@@ -1,6 +1,5 @@
 import math
-from typing import List, Optional, Union
-from nodes import Node
+from typing import List, Optional
 
 
 # 14. Longest common prefix

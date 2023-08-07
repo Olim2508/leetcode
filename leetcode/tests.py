@@ -1,5 +1,5 @@
 from main import *
-from nodes import *
+from leetcode.nodes import *
 
 
 def test_length_of_longest_substring():
