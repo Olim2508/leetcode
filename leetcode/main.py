@@ -444,3 +444,49 @@ class RecentCounter:
         return count_items_in_range
 
 
+# 1021
+class RemoveOuterParenthesisSolution:
+    # my solution
+    def removeOuterParentheses(self, s: str) -> str:
+        if not s:
+            return ""
+        res = ""
+        sub = []
+        par_count = {
+            "open_par": 0,
+            "closed_par": 0,
+        }
+        for i in range(len(s)):
+            sub.append(s[i])
+            if s[i] == "(":
+                par_count['open_par'] += 1
+            else:
+                par_count['closed_par'] += 1
+            if (len(sub) % 2 == 0) and (sub[0] == "(") and (sub[-1] == ")") and (par_count['open_par'] == par_count['closed_par']):
+                sub.pop(0)
+                sub.pop(-1)
+                res += "".join(sub)
+                sub.clear()
+                par_count['open_par'] = 0
+                par_count['closed_par'] = 0
+        return res
+
+    # chatgpt solution
+    def solution(self, s):
+        res = ""
+        balance = 0  # To keep track of open and closed parentheses balance
+        sub = []
+
+        for char in s:
+            if char == "(":
+                balance += 1
+            else:
+                balance -= 1
+
+            sub.append(char)
+
+            if balance == 0:
+                res += "".join(sub[1:-1])  # Append the inner substring excluding outer parentheses
+                sub = []
+
+        return res

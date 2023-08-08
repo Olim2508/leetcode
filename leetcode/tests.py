@@ -235,3 +235,22 @@ def test_recent_counter():
 
     res = obj.ping(3002)
     assert res == 3
+
+
+def test_remove_outer_parenthesis():
+    obj = RemoveOuterParenthesisSolution()
+    s = "(()())(())"
+    res = obj.removeOuterParentheses(s)
+    assert res == "()()()"
+
+    s = "(()(()))"
+    res = obj.removeOuterParentheses(s)
+    assert res == "()(())"
+
+    s = "(()())(())(()(()))"
+    res = obj.removeOuterParentheses(s)
+    assert res == "()()()()(())"
+
+    s = "()()"
+    res = obj.removeOuterParentheses(s)
+    assert res == ""
