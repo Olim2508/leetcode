@@ -490,3 +490,23 @@ class RemoveOuterParenthesisSolution:
                 sub = []
 
         return res
+
+
+# 1047
+class RemoveDuplicatesSolution:
+    """aababaab -> ba"""
+
+    def removeDuplicates(self, s: str) -> str:
+        if len(s) < 1:
+            return s
+
+        res_list = []
+        for let in s:
+            if res_list:
+                if res_list[-1] != let:
+                    res_list.append(let)
+                else:
+                    res_list.pop()
+            else:
+                res_list.append(let)
+        return "".join(res_list)

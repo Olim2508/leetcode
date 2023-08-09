@@ -254,3 +254,20 @@ def test_remove_outer_parenthesis():
     s = "()()"
     res = obj.removeOuterParentheses(s)
     assert res == ""
+
+
+def test_remove_duplicates():
+    obj = RemoveDuplicatesSolution()
+    s = "abbaca"
+    res = obj.removeDuplicates(s)
+    assert res == "ca"
+
+    s = "azxxzy"
+    res = obj.removeDuplicates(s)
+    assert res == "ay"
+
+    s = "aababaab"
+    res = obj.removeDuplicates(s)
+    assert res == "ba"
+
+
