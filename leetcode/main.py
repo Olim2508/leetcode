@@ -462,7 +462,7 @@ class RemoveOuterParenthesisSolution:
                 par_count['open_par'] += 1
             else:
                 par_count['closed_par'] += 1
-            if (len(sub) % 2 == 0) and (sub[0] == "(") and (sub[-1] == ")") and (par_count['open_par'] == par_count['closed_par']):
+            if (sub[0] == "(") and (sub[-1] == ")") and (par_count['open_par'] == par_count['closed_par']):
                 sub.pop(0)
                 sub.pop(-1)
                 res += "".join(sub)
