@@ -271,3 +271,21 @@ def test_remove_duplicates():
     assert res == "ba"
 
 
+def test_is_valid_parenthesis():
+    obj = IsValidParenthesis()
+
+    s = "{[]}"
+    res = obj.isValid(s)
+    assert res
+
+    # s = "()"
+    # res = obj.isValid(s)
+    # assert res
+    #
+    # s = "()[]{}"
+    # res = obj.isValid(s)
+    # assert res
+    #
+    # s = "(]"
+    # res = obj.isValid(s)
+    # assert not res
