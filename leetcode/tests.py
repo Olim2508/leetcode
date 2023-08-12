@@ -278,14 +278,33 @@ def test_is_valid_parenthesis():
     res = obj.isValid(s)
     assert res
 
-    # s = "()"
-    # res = obj.isValid(s)
-    # assert res
-    #
-    # s = "()[]{}"
-    # res = obj.isValid(s)
-    # assert res
-    #
-    # s = "(]"
-    # res = obj.isValid(s)
-    # assert not res
+    s = "()"
+    res = obj.isValid(s)
+    assert res
+
+    s = "()[]{}"
+    res = obj.isValid(s)
+    assert res
+
+    s = "(]"
+    res = obj.isValid(s)
+    assert not res
+
+
+def test_first_unique_char():
+    obj = FirstUniqueCharacterSolution()
+    s = "leetcode"
+    res = obj.firstUniqChar(s)
+    assert res == 0
+
+    s = "loveleetcode"
+    res = obj.firstUniqChar(s)
+    assert res == 2
+
+    s = "aabb"
+    res = obj.firstUniqChar(s)
+    assert res == -1
+
+
+
+

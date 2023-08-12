@@ -403,8 +403,6 @@ class CountStudentsSolution:
         if not students:
             return 0
         for i in range(len(students)):
-            print("students", students)
-            print("sandwiches", sandwiches, "\n\n")
             if not any(item in students for item in sandwiches):
                 return len(students)
             if students[i] == sandwiches[0]:
@@ -531,6 +529,24 @@ class IsValidParenthesis:
             else:
                 stack.append(c)
         return True if not stack else False
+
+
+# 387
+class FirstUniqueCharacterSolution:
+
+    def firstUniqChar(self, s: str) -> int:
+        queue = {}
+        char_order = {}
+        for index, char in enumerate(s):
+            if char not in queue:
+                queue[char] = 1
+                char_order[char] = index
+            else:
+                queue[char] += 1
+        for k, v in queue.items():
+            if v == 1:
+                return char_order[k]
+        return -1
 
 
 
