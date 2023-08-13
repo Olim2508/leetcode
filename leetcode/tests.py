@@ -306,5 +306,16 @@ def test_first_unique_char():
     assert res == -1
 
 
+def test_time_required():
+    obj = TimeRequiredSolution()
+    tickets, k = [2, 3, 2], 2
+    # res = obj.gpt_solution(tickets, k)
+    res = obj.timeRequiredToBuy(tickets, k)
+    assert res == 6
+
+    # tickets, k = [5, 1, 1, 1], 0
+    # res = obj.timeRequiredToBuy(tickets, k)
+    # assert res == 8
+
 
 
