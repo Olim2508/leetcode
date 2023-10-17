@@ -318,4 +318,16 @@ def test_time_required():
     # assert res == 8
 
 
+# todo need to test further
+def test_basic_calculator_ii():
+    res = basic_calculator_ii("3+2*2")
+    assert res == 7
+
+
+def test_remove_duplicate_nums():
+    nums_data = [1, 1, 1, 2, 2]
+    expected_nums = [1, 2, "_", "_", "_"]
+    k, res_nums = remove_duplicate_nums(nums_data)
+    assert k == 2
+    assert res_nums == expected_nums
 

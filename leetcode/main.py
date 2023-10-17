@@ -1,5 +1,6 @@
 import math
-from typing import List, Optional
+import re
+from typing import List, Optional, Tuple
 
 
 # 14. Longest common prefix
@@ -580,3 +581,59 @@ class TimeRequiredSolution:
                         seconds += 1
 
 
+# todo need to fix
+def basic_calculator_ii(s: str) -> int:
+    """3+2*2"""
+    res = 0
+    sign = ""
+    for i in range(len(s)):
+        if s[i] == "*":
+            c = int(s[i - 1]) * int(s[i + 1])
+            print("it is multiply", s[i], "sign", sign, "c", c, "res", res)
+
+            if sign:
+                if sign == "-":
+                    res -= int(c)
+                else:
+                    res += int(c)
+            else:
+                res += int(s[i])
+        elif s[i] == "/":
+            c = int(s[i - 1]) // int(s[i + 1])
+            if sign:
+                if sign == "-":
+                    res -= int(c)
+                else:
+                    res += int(c)
+            else:
+                res += int(s[i])
+        elif s[i] == "-" or s[i] == "+":
+            sign = s[i]
+            print("it is s", s[i], "sign", sign, "res", res)
+        elif s[i] == "":
+            continue
+        else:
+            if sign:
+                if sign == "-":
+                    res -= int(s[i])
+                else:
+                    res += int(s[i])
+            else:
+                res += int(s[i])
+            print("it is number", s[i], "sign", sign, "res", res)
+    return res
+
+
+def remove_duplicate_nums(nums: List[int]) -> Tuple[int, List[int]]:
+    if len(nums) < 2:
+        return len(nums), nums
+
+    nums_copy = nums.copy()
+    for i in range(len(nums_copy)):
+        # if next num is duplicate
+        if i < len(nums_copy) - 1 and nums_copy[i] == nums_copy[i + 1]:
+            del nums[i + 1]
+    count = len(nums)
+    remaining_num = count - len(nums_copy)
+    nums += ["_" for i in range(remaining_num)]
+    return count, nums
