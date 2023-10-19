@@ -24,6 +24,17 @@ def bonAppetit(bill, k, b):
 
 
 test2 = bonAppetit([3, 10, 2, 9], 1, 12)
-print("test2", test2)
 assert test2 == 5
+
+
+def findDigits(n):
+    counter = 0
+    for i in str(n):
+        if int(i) != 0 and n % int(i) == 0:
+            counter += 1
+    return counter
+
+
+test3 = findDigits(1012)
+assert test3 == 3
 
