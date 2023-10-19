@@ -12,8 +12,7 @@ def countingValleys(steps, path):
     return valley_count
 
 
-test1 = countingValleys(8, "UDDDUDUU")
-assert test1 == 1
+assert countingValleys(8, "UDDDUDUU") == 1
 
 
 def bonAppetit(bill, k, b):
@@ -23,8 +22,7 @@ def bonAppetit(bill, k, b):
     return "Bon Appetit"
 
 
-test2 = bonAppetit([3, 10, 2, 9], 1, 12)
-assert test2 == 5
+assert bonAppetit([3, 10, 2, 9], 1, 12) == 5
 
 
 def findDigits(n):
@@ -35,6 +33,5 @@ def findDigits(n):
     return counter
 
 
-test3 = findDigits(1012)
-assert test3 == 3
+assert findDigits(1012) == 3
 
