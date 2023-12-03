@@ -637,3 +637,13 @@ def remove_duplicate_nums(nums: List[int]) -> Tuple[int, List[int]]:
     remaining_num = count - len(nums_copy)
     nums += ["_" for i in range(remaining_num)]
     return count, nums
+
+
+def min_chips(total: int) -> int:
+    chip_types = [100, 50, 25, 10, 5, 1]
+    count = 0
+    for chip in chip_types:
+        if chip <= total:
+            count += total // chip
+            total = total % chip
+    return count
