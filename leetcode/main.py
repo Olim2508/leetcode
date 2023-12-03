@@ -1,5 +1,6 @@
 import math
 import re
+from collections import defaultdict
 from typing import List, Optional, Tuple
 
 
@@ -647,3 +648,16 @@ def min_chips(total: int) -> int:
             count += total // chip
             total = total % chip
     return count
+
+
+def count_most_duplicate(string: str) -> str:
+    count = 0
+    count_map = defaultdict(int)
+    res = None
+    for char in string:
+        count_map[char] += 1
+        if count_map[char] > count:
+            count = count_map[char]
+            res = char
+    return res
+
