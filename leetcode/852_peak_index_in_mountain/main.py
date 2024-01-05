@@ -31,19 +31,19 @@ class TestCase(unittest.TestCase):
     def setUp(self):
         self.solution = Solution()
 
-    # def test_example_1(self):
-    #     arr = [0, 10, 5, 2]
-    #     result = self.solution.peakIndexInMountainArray(arr)
-    #     self.assertEqual(result, 1)
-    #     result = self.solution.brute_force(arr)
-    #     self.assertEqual(result, 1)
-    #
-    # def test_example_2(self):
-    #     arr = [0, 2, 1, 0]
-    #     result = self.solution.peakIndexInMountainArray(arr)
-    #     self.assertEqual(result, 1)
-    #     result = self.solution.brute_force(arr)
-    #     self.assertEqual(result, 1)
+    def test_example_1(self):
+        arr = [0, 10, 5, 2]
+        result = self.solution.peakIndexInMountainArray(arr)
+        self.assertEqual(result, 1)
+        result = self.solution.brute_force(arr)
+        self.assertEqual(result, 1)
+
+    def test_example_2(self):
+        arr = [0, 2, 1, 0]
+        result = self.solution.peakIndexInMountainArray(arr)
+        self.assertEqual(result, 1)
+        result = self.solution.brute_force(arr)
+        self.assertEqual(result, 1)
 
     def test_example_3(self):
         arr = [3,9,8,6,4]
@@ -52,12 +52,12 @@ class TestCase(unittest.TestCase):
         result = self.solution.brute_force(arr)
         self.assertEqual(result, 1)
 
-    # def test_example_4(self):
-    #     arr = [3,4,5,1]
-    #     result = self.solution.peakIndexInMountainArray(arr)
-    #     self.assertEqual(result, 2)
-    #     result = self.solution.brute_force(arr)
-    #     self.assertEqual(result, 2)
+    def test_example_4(self):
+        arr = [3,4,5,1]
+        result = self.solution.peakIndexInMountainArray(arr)
+        self.assertEqual(result, 2)
+        result = self.solution.brute_force(arr)
+        self.assertEqual(result, 2)
 
 
 if __name__ == '__main__':

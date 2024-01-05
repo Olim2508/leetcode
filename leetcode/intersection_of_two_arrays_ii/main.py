@@ -3,19 +3,23 @@ from typing import List
 
 
 class Solution:
-    # todo not finished
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        hash_map = defaultdict(int)
+        res = []
+        nums_1_counter = self.count_numbers(nums1)
+        nums_2_counter = self.count_numbers(nums2)
 
-        output = []
-        for i in nums2:
-            if i in nums2:
-                hash_map[i] += 1
-                if hash_map[i] > 0:
-                    output.append(i)
-                    hash_map[i] -= 1
+        for k, v in nums_1_counter.items():
+            for k_2, v_2 in nums_2_counter.items():
+                if k == k_2:
+                    times = [k] * min(v, v_2)
+                    res += times
+        return res
 
-        return output
+    def count_numbers(self, nums):
+        nums_counter = defaultdict(int)
+        for num in nums:
+            nums_counter[num] += 1
+        return nums_counter
 
 
 if __name__ == '__main__':
