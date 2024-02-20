@@ -35,3 +35,23 @@ def findDigits(n):
 
 assert findDigits(1012) == 3
 
+
+def pickingNumbers(a):
+    # Create a dictionary to count the occurrences of each number in the array
+    num_counts = {}
+    for num in a:
+        num_counts[num] = num_counts.get(num, 0) + 1
+
+    max_length = 0
+
+    # Iterate through the unique numbers in the array
+    for num in num_counts:
+        # Check the length of subarray considering the current number and the next one
+        max_length = max(max_length, num_counts[num] + num_counts.get(num + 1, 0))
+
+    return max_length
+
+
+if __name__ == "__main__":
+    assert pickingNumbers([4, 6, 5, 3, 3, 1]) == 3
+    assert pickingNumbers([1, 2, 2, 3, 1, 2]) == 5
