@@ -52,6 +52,28 @@ def pickingNumbers(a):
     return max_length
 
 
+def taumBday(b, w, bc, wc, z):
+    initial_p = b * bc + w * wc
+    changed_p = float("inf")
+    if bc > wc:
+        for i in range(1, b + 1):
+            p = (b - i) * bc + (w + i) * wc + z * i
+            if p < initial_p:
+                changed_p = p
+    elif bc < wc:
+        for i in range(1, w + 1):
+            p = (b + i) * bc + (w - i) * wc + z * i
+            if p < initial_p:
+                changed_p = p
+    else:
+        return initial_p
+
+    return changed_p if changed_p < initial_p else initial_p
+
+
 if __name__ == "__main__":
-    assert pickingNumbers([4, 6, 5, 3, 3, 1]) == 3
-    assert pickingNumbers([1, 2, 2, 3, 1, 2]) == 5
+    res = taumBday(b=3, w=6, bc=9, wc=1, z=1)
+    print(res)
+    assert res == 12
+    # assert taumBday(b=3, w=5, bc=3, wc=4, z=1) == 29
+
